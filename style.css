@@ -1,0 +1,1100 @@
+.diag-triangle_fromgraytoblue {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to left bottom,
+    #f6f6f6 49.9%,
+    #F4FDFF 50%
+  );
+}
+
+.diag-triangle_frombluetogray {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to right bottom,
+    #F4FDFF 50%,
+    #f6f6f6 49.9%
+  );
+}
+
+.diag-triangle_frombluetoyellow {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to right bottom,
+    #F4FDFF 50%,
+    #FEFFD0 49.9%
+  );
+}
+
+.diag-triangle_fromyellowtoblue {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to left bottom,
+    #FEFFD0 49.9%,
+    #F4FDFF 50%
+  );
+}
+
+:root {
+  --ink:#0a0a0a;
+  --accent:#1FB655;    /* 緑のライン */
+  --cta:#FDFF76;       /* 黄色ボタン */
+  --shadow:rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  color:var(--ink);
+}
+
+/* ▼ 最初は非表示、スクロールで出す */
+.site-header{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#fff;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+  z-index: 40;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+/* ▼ hero通過後に表示する状態 */
+.site-header.show{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ▼ 内側の配置 */
+.site-header .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ▼ ロゴ */
+.hero_BeEn_img{
+  height: 40px;
+  width: auto;
+}
+
+/* ▼ 右側の黄色CTA */
+.cta{
+  margin-left:auto;
+  display:inline-block;
+  padding: 14px 14px;
+  background: var(--cta);
+  color:#111;
+  font-weight: 800;
+  border-radius: 18px;
+  text-decoration:none;
+  white-space: nowrap;
+  box-shadow: 0 8px 0 0 var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.12));
+}
+.cta:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 9px 0 0 var(--shadow);
+}
+.cta:active{
+  transform: translateY(1px);
+  box-shadow: 0 7px 0 0 var(--shadow);
+}
+
+
+
+
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* 全画面の高さ */
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.30)), /* 文字を読みやすくする薄い黒幕 */
+    url('images/header.jpg') center/cover no-repeat; /* 背景画像 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 中央テキスト */
+.hero_content {
+  color: #fff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(10%); /* 少し下寄せにする */
+}
+
+/* 見出し */
+.hero_content h1 {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 28px;
+}
+
+/* サブテキスト */
+.hero_content p {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+#gaiyou {
+  background: #f6f6f6;
+  padding: 20px 6% ;
+  font-family: "Noto Sans JP";
+}
+
+.gaiyou_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+ 
+}
+
+.gaiyou_title_wrap {
+  text-align: center;  /* 子要素(.gaiyou_title)を中央に配置 */
+}
+
+
+.gaiyou_card{
+  background:#ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gaiyou_body{  
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.gaiyou_text{
+    width: 55%;
+    margin: auto;
+    padding: 24px;    
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333333;
+    box-sizing: border-box;
+
+
+}
+
+
+.gaiyou_img{  
+    width: 459px;  
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    object-fit: cover;}
+
+#app_examples {
+  background: #F4FDFF;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+  text-align: center;
+}    
+
+
+.app_examples_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 24px;               
+}
+
+.app_examples_box {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center; 
+  gap: 40px;    
+
+}
+
+
+
+.app_examples_timerapp_box,
+.app_examples_quizapp_box,
+.app_examples_todolistapp_box{
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 250px;
+  height:80%;
+  padding:1%;
+}
+
+.app_examples_timerapp_img,
+.app_examples_quizapp_img,
+.app_examples_todolistapp_img{
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+
+#flow{
+  background: #f6f6f6;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+}
+
+.flow_title {
+ background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 24px; 
+}
+
+.flow_title_wrap {
+  text-align: center;  /* 子要素(.flow_title)を中央に配置 */
+}
+
+.flow_box_all {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; 
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+
+
+.flow_box_1,
+.flow_box_2,
+.flow_box_3,
+.flow_box_4 {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 0px 32px;
+  position: relative;
+}
+
+
+.flow_box_1_time,
+.flow_box_2_time,
+.flow_box_3_time,
+.flow_box_4_time {
+  font-weight: 800;
+  font-size: 24px;
+  color: #000;
+  min-width: 100px;
+  text-align: right;
+  margin-right: 24px;
+  border-right: 3px solid #000;
+  padding-right: 24px;
+}
+
+
+.flow_box_1_body,
+.flow_box_2_body,
+.flow_box_3_body,
+.flow_box_4_body {
+  flex: 1;
+}
+
+
+.flow_box_1_title,
+.flow_box_2_title,
+.flow_box_3_title,
+.flow_box_4_title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.flow_box_1_text,
+.flow_box_2_text,
+.flow_box_3_text,
+.flow_box_4_text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+
+
+#merit {
+  background: #F4FDFF;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+  text-align: center;
+}    
+
+
+.merit_title {
+ background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 24px;    
+}
+
+
+
+.merit_box_all {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center; 
+  gap: 40px;    
+
+}
+
+
+
+.merit_1_box,
+.merit_2_box,
+.merit_3_box{
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 250px;
+  height: 420px;
+  padding:1%;
+}
+
+.merit_1_img,
+.merit_2_img,
+.merit_3_img{
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+ 
+}
+
+#voice{
+  background: #f6f6f6;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+}
+
+
+
+
+.voice_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 24px;             
+}
+
+.voice_box_all {
+ display: flex;
+  flex-direction: column; /* ←縦方向に積む */
+  gap: 48px;              /* 上下の余白 */
+  align-items: center;
+  margin-top: 20px;
+}
+
+.voice_student_box{
+  width: 100%;             /* 親に合わせて広がる */
+  display: flex;           /* 画像と吹き出しを横並びにする */    
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 24px 32px;
+  position: relative;        /* しっぽがはみ出しても表示 */
+}
+
+.voice_student_img{ position:relative; z-index:1; }
+.voice_student_img img{
+  width:459px; height:auto; border-radius:8px;
+  box-shadow:0 4px 16px rgba(0,0,0,.15); object-fit:cover;
+}
+
+/* 吹き出しは通常フローのまま（画像とかぶせない） */
+.voice_student_balloon{
+  position:relative;
+  margin-left:24px;            /* 画像との通常の余白 */
+  background:#c4f6ff;
+  border-radius:48px;
+  box-shadow:0 6px 16px rgba(0,0,0,.1);
+  padding:18px 28px;
+  font-size:22px; font-weight:700;
+  z-index:2;                   /* 先端が画像の上に来るように */
+}
+
+/* 先端（三角）だけ左に飛び出させる */
+.voice_student_balloon::after{
+  content:"";
+  position:absolute;
+  top:50%; transform:translateY(-50%);
+  left:-16px;                  /* ←ここを -8〜-24px で微調整（画像にどの程度かけるか） */
+  border-width:14px 16px 14px 0;  /* 上 右 下 左 */
+  border-style:solid;
+  border-color:transparent #c4f6ff transparent transparent;
+}
+
+/* 輪郭（影/枠）を付けたい場合は外側もう一枚 */
+.voice_student_balloon::before{
+  content:"";
+  position:absolute;
+  top:50%; transform:translateY(-50%);
+  left:-18px;                  /* ::after より少し外側 */
+  border-width:16px 18px 16px 0;
+  border-style:solid;
+  border-color:transparent #e5e7eb transparent transparent; /* 枠色 or 薄い影色 */
+  filter:blur(0.2px);          /* 目立ちすぎるときは薄くぼかす（任意） */
+  z-index:-1;                  /* 枠が本体の下になるように（任意） */
+}
+
+.voice_student_body{
+    width: 100%;
+    margin: auto;
+    padding: 24px;
+    font-weight: 800;    
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333333;
+    box-sizing: border-box;
+}
+
+
+.voice_student_setumei{
+    width: 100%;
+    margin: auto;
+    padding: 0 24px 24px 24px;
+    font-weight: 600;    
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    text-align: right;
+}
+
+
+
+.voice_mother_box{
+  width: 100%;             /* 親に合わせて広がる */
+  display: flex;         
+  align-items: flex-start;
+  justify-content: space-between;   /* ← 両端に配置して間隔確保 */
+  gap: 30px;  
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 24px 32px;
+  position: relative;            /* しっぽがはみ出しても表示 */
+}
+
+.voice_mother_img{ position:relative; z-index:1; }
+.voice_mother_img img{
+  width:459px; height:auto; border-radius:8px;
+  box-shadow:0 4px 16px rgba(0,0,0,.15); object-fit:cover;
+}
+
+/* 吹き出しは通常フローのまま（画像とかぶせない） */
+.voice_mother_balloon{
+  position:relative;
+  margin-left: 0;          
+  background:#c4f6ff;
+  border-radius:48px;
+  box-shadow:0 6px 16px rgba(0,0,0,.1);
+  padding:18px 28px;
+  font-size:22px; font-weight:700;
+  z-index:2;                   /* 先端が画像の上に来るように */
+}
+
+.voice_mother_balloon::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  right:-16px;                         /* ← 右に配置 */
+  left:auto;                           /* ← 左指定解除 */
+  border-width:14px 0 14px 16px;       /* ← 三角形の向きを右側に */
+  border-style:solid;
+  border-color:transparent transparent transparent #c4f6ff; /* ← ← ← ここ変更！ */
+}
+
+.voice_mother_balloon::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  right:-18px;                         /* ← 外側に配置 */
+  left:auto;                           /* ← 左指定解除 */
+  border-width:16px 0 16px 18px;       /* ← 向きを右側に */
+  border-style:solid;
+  border-color:transparent transparent transparent #e5e7eb; /* ← ← ← ここ変更！ */
+  filter:blur(0.2px);
+  z-index:-1;
+}
+
+
+.voice_mother_body{
+    width: 100%;
+    margin: auto;
+    padding: 24px;
+    font-weight: 800;    
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333333;
+    box-sizing: border-box;
+
+}
+
+.voice_mother_setumei{
+    width: 100%;
+    margin: auto;
+    padding: 0 24px 24px 24px;
+    font-weight: 600;    
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    text-align: right;
+}
+
+
+#introduce {
+  background: #F4FDFF;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+  text-align: center;
+}    
+
+.introduce_teacherbox_all {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center; 
+  gap: 20px; 
+  padding: 20px 6% 50px;   
+}
+
+.introduce_title {
+   background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 24px; 
+}
+
+.introduce_teacherbox_1
+,.introduce_teacherbox_2
+,.introduce_teacherbox_3
+{
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 250px;
+  height:80%;
+  padding:1%;
+
+
+}
+
+.introduce_teacherbox_1_img
+,.introduce_teacherbox_2_img
+,.introduce_teacherbox_3_img
+,.introduce_teacherbox_4_img{
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+ 
+}
+
+
+
+
+.introduce_BeEngineer_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+}
+
+.introduce_BeEngineer_title_wrap {
+  text-align: center; }
+
+.introduce_BeEngineer_box{
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding:48px;
+  text-align: left;
+}
+
+.introduce_BeEngineer_body{
+  display:flex;
+}
+
+.introduce_teacherbox_4_img{  
+    width: 300px;  
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    object-fit: cover;}
+
+
+#event_detail{
+  background: #f6f6f6;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+}
+
+
+.event_detail_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 24px;                
+}
+
+.event_detail_title_wrap {
+  text-align: center;  /* 子要素(.gaiyou_title)を中央に配置 */
+}
+
+.event_detail_all{
+  display: flex;
+  gap: 32px; 
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+table {
+  width: 50%;
+  margin: 0% ;
+  border-collapse: collapse; /* ← 枠線を重ねて1本に */
+  font-family: "Noto Sans JP";
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 1px 4px;      /* ← 上下1pxにすると縦がぐっと詰まる */
+  line-height: 1.0;      /* ← 行間をほぼゼロに */
+  font-size: 15px;       /* ← 文字サイズも少し落とすとさらに圧縮 */
+  vertical-align: middle;/* ← テキストを中央揃えにして整う */
+}
+
+
+th {
+  background-color: #c4f6ff;
+  font-weight: 300;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* 偶数行に色を付けて見やすく */
+}
+
+
+
+.map_container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px;
+  border-radius: 12px;
+  overflow: hidden;             /* ← 角丸を有効にするため */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.map_container iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+}
+
+.map_area{
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+#question {
+  background: #F4FDFF;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+  text-align: center;
+}    
+
+
+.question_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 24px;                
+}
+
+
+
+:root{
+  --green:#a8f7a2;        /* 通常時の枠 */
+  --green-shadow:#d1ffd0; /* 通常時の影 */
+  --blue:#3aa4ff;         /* 押したときの枠 */
+}
+
+/* 外枠全体 */
+.question_1, .question_2, .question_3, .question_4, .question_5 {
+  background: #fff;
+  border: 4px solid var(--green);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 var(--green-shadow);
+  margin: 20px 0;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 開いた状態（is-openクラスが付いたとき） */
+.question_1.is-open , .question_2.is-open, .question_3.is-open, .question_4.is-open, .question_5.is-open {
+  border-color: var(--blue);
+  box-shadow: 4px 4px 0 rgba(58,164,255,.3);
+}
+
+/* 質問ボタン */
+.question_1_faq-head , .question_2_faq-head, .question_3_faq-head, .question_4_faq-head, .question_5_faq-head {
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* 右端のV字 */
+.chevron {
+  width: 16px;
+  height: 16px;
+  border-right: 3px solid #000;
+  border-bottom: 3px solid #000;
+  transform: rotate(45deg); /* ▼ */
+  transition: transform 0.3s ease;
+}
+
+/* 開いたら ∧ に変化 */
+.question_1.is-open .chevron , .question_2.is-open .chevron, .question_3.is-open .chevron, .question_4.is-open .chevron, .question_5.is-open .chevron {
+  transform: rotate(-135deg);
+}
+
+/* 回答部分（最初は非表示） */
+.question_body_1 , .question_body_2, .question_body_3, .question_body_4, .question_body_5 {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 24px;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* 開いたら中身を表示 */
+.question_1.is-open .question_body_1, .question_2.is-open .question_body_2, .question_3.is-open .question_body_3, .question_4.is-open .question_body_4, .question_5.is-open .question_body_5 {
+  max-height: 400px; /* 内容によって調整 */
+  opacity: 1;
+  padding: 0 24px 18px;
+}
+
+
+
+#applyform {
+  background: #FEFFD3;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+  text-align: center;
+  margin: 0 auto;
+}    
+
+
+
+
+
+.applyform_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;}
+
+
+.applyform_name_box, .applyform_hurigana_box, .applyform_school_box, .applyform_grade_box, .applyform_email_box, .applyform_tel_box, .applyform_other_box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 24px 0px;
+  position: relative;
+  border: 2px solid #000;
+}
+
+.applyform_name, .applyform_hurigana, .applyform_school, .applyform_grade, .applyform_email, .applyform_tel, .applyform_other {
+  flex: 1;
+  padding:0px;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: left;
+  font-weight: 800;
+}
+
+.applyform_apply_box{
+  align-items: center;
+  background: #C6FFAF;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px 0px;
+  position: relative;
+  border: 2px solid #fff;
+  width: 30%;
+  position: relative;
+  justify-content: center; 
+  margin: 10px auto;
+  font-weight: 800;
+  font-size: 24px;
+
+}
+
+
+
+#question_form {
+  background: #F4FDFF;
+  padding: 20px 6%;
+  font-family: "Noto Sans JP";
+  text-align: center;
+  margin: 0 auto;
+}    
+
+
+.question_form_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  
+  font-weight: 800;
+  color: #040404;
+  font-size: 48px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.question_form_name_box, .question_form_email_box, .question_form_content_box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 24px 0px;
+  position: relative;
+  border: 2px solid #000;
+}
+
+.question_form_name, .question_form_email, .question_form_content {
+  flex: 1;
+  padding:0px;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: left;
+  font-weight: 800;
+}
+
+.question_form_apply_box{
+  align-items: center;
+  background: #C6FFAF;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px 0px;
+  position: relative;
+  border: 2px solid #fff;
+  width: 30%;
+  position: relative;
+  justify-content: center; 
+  margin: 10px auto;
+  font-weight: 800;
+  font-size: 24px;
+
+
+}
+
+.footer_BeEn_img {
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+footer{
+    background: #000000;
+    padding: 40px 6%;
+    font-family: "Noto Sans JP";
+    text-align: center;
+    margin: 0 auto;
+    color: #FFFFFF;
+  }
+
+  footer a {
+  color: #ffffff;            /* 黒に固定（もしくは inherit でもOK） */
+  text-decoration: none;  /* 下線を消す */
+  margin: 0 8px;          /* リンク間に少しスペース（任意） */
+}
+
+footer a:hover {
+  color: #555;            /* ホバー時に少しグレー（任意） */
+  text-decoration: underline; /* ホバー時だけ下線（任意） */
+}
