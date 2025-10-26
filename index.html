@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-sc">
+    <title>梅田で開催！初心者向けプログラミングイベント「バイブコーディング」｜BeEngineer</title>
+    <meta name="description" content="大阪・梅田で開催中の初心者向けAIプログラミングイベント『バイブコーディング』。AIと一緒にアプリを作れる体験会です。中学生・高校生・未経験者も大歓迎！阪急梅田駅・JR大阪駅から徒歩3分。">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -14,12 +15,41 @@
 <header class="site-header">
   <div class="container">
     <img src="images/footer_BeEn.png" class="hero_BeEn_img">
-
-    <a class="cta" href="#apply" aria-label="お申し込みはこちら">
-      お申し込みはこちら！
-    </a>
-
-   
+    <button class="hamburger" aria-label="メニューを開く" aria-controls="site-menu" aria-expanded="false">
+      <span class="hamburger__bar" aria-hidden="true"></span>
+      <span class="hamburger__bar" aria-hidden="true"></span>
+      <span class="hamburger__bar" aria-hidden="true"></span>
+    </button>
+    <div class="skip_button" id="site-menu">
+      <a class="cta_gaiyou" href="#gaiyou" >
+        概要
+      </a>
+      <a class="cta_app_examples" href="#app_examples">
+        アプリ例
+      </a>
+      <a class="cta_flow" href="#flow" >
+        当日の流れ
+      </a>
+      <a class="cta_merit" href="#merit" >
+        メリット
+      </a>
+      <a class="cta_voice" href="#voice" >
+        実際の声
+      </a>
+      <a class="cta_gaiyou" href="#introduce" >
+        講師・運営紹介
+      </a>
+      <a class="cta_gaiyou" href="#event_detail" >
+        イベント詳細
+      </a>
+      <a class="cta_gaiyou" href="#question" >
+        よくある質問
+      </a>
+      </div>
+      <a class="cta_applyform" href="#applyform" >
+        お申し込みはこちら！
+      </a>
+    </div>
   </div>
 </header>
 
@@ -28,8 +58,11 @@
 
 <section id="hero">
   <div class="hero_content">
-    <h1>未経験でも2時間で動く。<br>AIと作る初めてのアプリ体験</h1>
-    <p>中高生対象／梅田／定員20名／AI＋メンターが伴走／初心者OK・PC貸出あり</p>
+    <h1>大阪梅田で開催! <br>AIと作る初めてのアプリ体験</h1>
+    <p>未経験でも2時間で動く/中高生対象/阪急梅田駅徒歩1分/定員20名/初心者OK・PC貸出あり</p>
+    <div style="display:flex; justify-content:flex-end;">
+      <a href="#applyform" class="cta_applyform_2">今すぐ申し込む→</a>
+    </div>
   </div>
 </section>
 
@@ -42,15 +75,13 @@
   <div class="gaiyou_card">
     <div class="gaiyou_body">
       <div class="gaiyou_text">
-        <p>バイブコーディングとは、AIに自然な言葉で「こういうアプリが欲しい」と伝えるだけでコードを生成してくれる最新の開発手法。この手法を使って自分だけのアプリを０から作ります！！</p>
-        <p>当日やること<br>
+        <p>バイブコーディングとは、AIに自然な言葉で「こういうアプリが欲しい」と伝えるだけでコードを生成してくれる最新の開発手法。本イベントではこの手法を使って自分だけのアプリを０から作ります！！</p>
+        <p><span class="gaiyou_text_yarukoto">当日やること</span><br>
           ステップ1：AIの使い方を覚えて、まず1回“動かす”<br>
-          ステップ2：ミニ課題を組み合わせて自分のアプリに（色・音・スコアをカスタム)<br>
+          ステップ2：ミニ課題を組み合わせて自分のアプリに（色・音・スコアをカスタム) <br>
           ステップ3：作品発表＆スクショ配布（家族に見せられる）</p>
       </div>
-      <div class="gaiyou_media">
       <img src="images/BeEn_visual_2 (1).jpg" class="gaiyou_img">
-      </div>
     </div>
   </div>  
 </section>
@@ -58,20 +89,26 @@
 <div class="diag-triangle_fromgraytoblue"></div>
 
 <section id="app_examples">
-  <h2 class="app_examples_title">作れるアプリ例</h2>
+  <h2 class="app_examples_title">中高生でも作れるアプリ例</h2>
 
-    <div class="app_examples_box">
+    <div class="app_examples_box_all">
       <div class="app_examples_timerapp_box">
-        <img src="images/BeEn_timerapp_example.png" class="app_examples_timerapp_img">
-        <p class="app_examples_timerapp_text">タイマーアプリ</p>
+        <img src="images/BeEn_app_1.png" class="app_examples_timerapp_img">
+        <p class="app_examples_timerapp_title">シューティングゲーム</p>
+        <p class="app_examples_timerapp_text">自分で弾を出して敵を倒すシンプルなアクションゲーム。
+プログラムを少し変えるだけで、弾の速さや敵の動きを自由にカスタマイズできます。</p>
       </div>
       <div class="app_examples_quizapp_box">
-        <img src="images/BeEn_quizapp_example.png" class="app_examples_quizapp_img">
-        <p class="app_examples_quizapp_text">クイズ自動作成アプリ</p>
+        <img src="images/BeEn_app_2.png" class="app_examples_quizapp_img">
+        <p class="app_examples_quizapp_title">英単語テストアプリ</p>
+        <p class="app_examples_quizapp_text">AIがランダムに英単語を出題し、4択から答えるクイズ形式の学習アプリ。
+自分の苦手な単語を自動で分析して、効率よく覚えられます。</p>
       </div>
       <div class="app_examples_todolistapp_box">
-        <img src="images/BeEn_todolistapp_example.png" class="app_examples_todolistapp_img">
-        <p class="app_examples_togolist_text">To Doリスト</p>
+        <img src="images/BeEn_app_3.png" class="app_examples_todolistapp_img">
+        <p class="app_examples_todolistapp_title">ゾンビゲーム</p>
+        <p class="app_examples_todolistapp_text">無数のゾンビが徘徊する迷路からの脱出を目指す、思考型サバイバルゲーム。
+このステージはAIが自動で生成しており、二度と同じ脱出路は現れません。</p>
       </div> 
     </div>
 </section>
@@ -81,12 +118,12 @@
 
 <section id="flow">
   <div class="flow_title_wrap">
-  <h2 class="flow_title">当日の流れ</h2>
+  <h2 class="flow_title">イベント当日の流れ</h2>
   </div>
 
   <div class="flow_box_all">
     <div class="flow_box_1">
-      <p class="flow_box_1_time">00-10</p> 
+      <p class="flow_box_1_time">00-10  </p> 
       <div class="flow_box_1_body">
         <h3 class="flow_box_1_title">オリエンテーション</h3>
         <p class="flow_box_1_text">PCを配布し席を決めます。今日のゴールと注意点を共有</p>
@@ -94,7 +131,7 @@
     </div>
 
     <div class="flow_box_2">
-      <p class="flow_box_2_time">10-25</p>
+      <p class="flow_box_2_time">10-25  </p>
       <div class="flow_box_2_body">
         <h3 class="flow_box_2_title">お試し</h3>
         <p class="flow_box_2_text">まず“動いた！”を体験。プロンプトの基本と、つまずいた時の聞き方を練習します。</p>
@@ -102,7 +139,7 @@
     </div>
     
     <div class="flow_box_3">
-      <p class="flow_box_3_time">25-95</p>
+      <p class="flow_box_3_time">25-95  </p>
       <div class="flow_box_3_body">
         <h3 class="flow_box_3_title">制作</h3>
         <p class="flow_box_3_text">実際にアプリを作成。講師が巡回しながら教えるから、止まってもすぐ再開できます。</p>
@@ -113,9 +150,10 @@
       <p class="flow_box_4_time">95-120</p>
       <div class="flow_box_4_body">
         <h3 class="flow_box_4_title">発表＆振り返り</h3>
-        <p class="flow_box_4_text">自分のアプリを発表し、他の参加者とフィードバックを交換します。最後に今日の振り返りを行います。</p>
+        <p class="flow_box_4_text">自分のアプリを発表し、他の参加者とフィードバックを交換します。</p>
       </div>
     </div>
+  </div>
 </section>
 
 <div class="diag-triangle_fromgraytoblue"></div>
@@ -128,32 +166,40 @@
     <div class="merit_1_box">
       <img src="images/merit_1.jpg" class="merit_1_img">
       <h3 class="merit_1_title">友達に自慢できる作品が完成</h3>
-      <p class="merit_1_text">
-      ・思いついたアイデアがその場で“動く”アプリに<br>
-      ・また作りたい！」が生まれる学びの循環<br>
-      ・発表会でみんなに拍手をもらえる達成感</p>
+      <ul class="merit_1_text hang_list">
+        <li>思いついたアイデアがその場で“動く”アプリに</li>
+        <li>「また作りたい！」が生まれる学びの循環</li>
+        <li>発表会でみんなに拍手をもらえる達成感</li>
+      </ul>
     </div>  
 
     <div class="merit_2_box">
       <img src="images/merit_2.jpg" class="merit_2_img">
       <h3 class="merit_2_title">未来につながる第一歩になる</h3>
-      <p class="merit_2_text"> 
-      ・作った作品や修了証が「探究・面談・受験」の実績にも使える<br>
-      ・AIやアプリの仕組みを体験して、次の学びへのモチベーションに<br>
-      ・また作りたい！」が生まれる学びの循環</p>
+      <ul class="merit_2_text hang_list">
+        <li>作った作品が実績になる</li>
+        <li>AIやアプリの仕組みを体験して、次の学びへのモチベーションに</li>
+        <li>「また作りたい！」が生まれる学びの循環</li>
+      </ul>
     </div>
 
     <div class="merit_3_box">
       <img src="images/merit_3.jpg" class="merit_3_img">
       <h3 class="merit_3_title">IT教育の入り口として最適</h3>
-      <p class="merit_3_text">
-      ・論理的に考え → 試して → 改善するプロセスを体験<br>
-      ・ITリテラシーの基礎（AI活用・エディタ操作・コードの仕組み）<br>
-      ・やり抜く力や協働力など“非認知能力”も育つ</p>
+      <ul class="merit_3_text hang_list">
+        <li>論理的に考え → 試して → 改善するプロセスを体験</li>
+        <li>AI活用やプログラム編集など、次世代に必須のITリテラシーを習得。</li>
+        <li>やり抜く力や協働力など“非認知能力”も育つ</li>
+      </ul>
     </div>
 
   </div>  
+
+  <div class="apply_box">
+    <a href="#applyform" class="cta_applyform_3">残り定員わずか！お申し込みはこちらをクリック！→</a>
 </section>
+
+
 
 <div class="diag-triangle_frombluetogray"></div>
 
@@ -164,27 +210,27 @@
   <div class="voice_box_all">
 
     <div class="voice_student_box">
-      <div class="voice_student_img">
+      <div class="voice_student_img_box">
         <img src="images/voice_student.JPG" class="voice_student_img">
       </div>
       <div class="voice_student_text">
         <div class="voice_student_balloon">
           <p class="voice_student_title">初心者の僕でもプログラミングができるようになりました！！</p>
         </div>  
-          <p class="voice_student_body">最初はタイピングも遅くて不安だったけど、 わからない時は先生がすぐ横でヒントをくれるから置いていかれず、毎回少しずつ「できた！」が増えていきます。  発表の時間に自分の作品をみんなの前で見せたとき、友だちが「すげー！」って言ってくれて自信がつきました。  今では家でも自分でアプリをいじるのが楽しくて、「オレでもできるんや」って思えるようになりました。          </p>
-          <p class="voice_student_setumei">吉田浩太くん　14歳中学3年生<br>中学一年生時からBeEngineerの授業を二年間受講</p>
+          <p class="voice_student_body">最初はタイピングも遅くて不安だったけど、 わからない時は先生がすぐ横でヒントをくれるから置いていかれず、毎回「できた！」を実感できています。  発表の時間に自分の作品をみんなの前で見せたとき、友だちが「すげー！」って言ってくれて自信がつきました。  今では家でも自分でアプリをいじるのが楽しくて、「僕でもできるんや」って思えるようになりました。          </p>
+          <p class="voice_student_setumei">吉田浩太くん　14歳中学3年生<br>中学1年生時からBeEngineerの授業を二年間受講</p>
       </div>
-    </div>  
+    </div> 
 
     <div class="voice_mother_box">
       <div class="voice_mother_text">
         <div class="voice_mother_balloon">
           <p class="voice_mother_title">息子が楽しそうにプログラミングをしている姿を見て嬉しくなりました！</p>
         </div>  
-          <p class="voice_mother_body">最初は「本当に初心者でも大丈夫かな」と心配していましたが、先生方が1人ひとりのペースに合わせて丁寧に見てくださるので、翔太も毎回楽しそうに通っています。  家ではあまりPCに触れなかった子が、自分から「今日はここまで作れた！」と報告してくれるようになりました。  授業のたびに進捗が見えるので、親としても成長が実感でき、安心して任せられます。  何より、ただの習い事ではなく「自分で考えて形にする力」がついてきているのが嬉しいです</p>
+          <p class="voice_mother_body">最初は「本当に初心者でも大丈夫かな」と心配していましたが、先生方が1人ひとりのペースに合わせて丁寧に見てくださるので、浩太も毎回楽しそうに通っています。  家ではあまりPCに触れなかった子が、自分から「今日はここまで作れた！」と報告してくれるようになりました。  授業のたびに進捗が見えるので、親としても成長が実感でき、安心して任せられます。  何より、ただの習い事ではなく「自分で考えて形にする力」がついてきているのが嬉しいです</p>
           <p class="voice_mother_setumei">吉田恵子さん<br>吉田浩太くんの母</p>
       </div>
-      <div class="voice_mother_img">
+      <div class="voice_mother_img_box">
         <img src="images/voice_mother.jpg" class="voice_mother_img">
       </div>
     </div>
@@ -203,35 +249,38 @@
       <img src="images/introduce_1.png" class="introduce_teacherbox_1_img">
       <div class="introduce_teacherbox_1_text">
         <p class="introduce_teacherbox_1_name">田中太郎</p>
-        <p class="introduce_teacherbox_1_body">
-          ・大阪大学在学<br>
-          ・小学生の頃からプログラミングを始める<br>
-          ・趣味はサイクリングとゲーム<br> 
-          ・指導歴三年</p>
+        <ul class="teacher_profile_list">
+          <li>大阪大学在学</li>
+          <li>小学生の頃からプログラミングを始める</li>
+          <li>趣味はサイクリングとゲーム</li>
+          <li>指導歴三年</li>
+        </ul>
       </div>
     </div>
 
     <div class="introduce_teacherbox_2">
-      <img src="images/introduce_2.png" class="introduce_teacherbox_1_img">
+      <img src="images/introduce_2.png" class="introduce_teacherbox_2_img">
       <div class="introduce_teacherbox_2_text">
         <p class="introduce_teacherbox_2_name">山田花子</p>
-        <p class="introduce_teacherbox_2_body">
-          ・京都大学在学<br>
-          ・中学生の頃からプログラミングを始める<br>
-          ・趣味は読書と映画鑑賞<br>
-          ・指導歴二年</p>
+        <ul class="teacher_profile_list">
+          <li>京都大学在学</li>
+          <li>中学生の頃からプログラミングを始める</li>
+          <li>趣味は読書と映画鑑賞</li>
+          <li>指導歴二年</li>
+        </ul>
       </div>
     </div>
 
     <div class="introduce_teacherbox_3">
-      <img src="images/introduce_3.png" class="introduce_teacherbox_1_img">
+      <img src="images/introduce_3.png" class="introduce_teacherbox_3_img">
       <div class="introduce_teacherbox_3_text">
         <p class="introduce_teacherbox_3_name">小島次郎</p>
-        <p class="introduce_teacherbox_3_body">
-          ・同志社大学在学<br>
-          ・中学生の頃からプログラミングを始める<br>
-          ・趣味は音楽とスポーツ<br>
-          ・指導歴一年</p>
+        <ul class="teacher_profile_list">
+          <li>同志社大学在学</li>
+          <li>中学生の頃からプログラミングを始める</li>
+          <li>趣味は音楽とスポーツ</li>
+          <li>指導歴一年</li>
+        </ul>
       </div>
     </div>
   </div>  
@@ -239,7 +288,7 @@
 
   <div class="introduce_BeEngineer_box">
     <div class="introduce_BeEngineer_title_wrap">
-    <h3 class="introduce_BeEngineer_title">プログラミング塾”BeEngineer”とは？？</h3>
+    <h3 class="introduce_BeEngineer_title">「BeEngineer」ってどんな塾？</h3>
     </div>
     <div class="introduce_BeEngineer_body">
       <p class="introduce_BeEngineer_text">BeEngineer（BeEn）は、中高生に向けて京都大学の学生を中心とする講師が実践的なプログラミングを教えるプログラミング教室です。 中高生という若い時期からプログラミングに触れ、現場で使われているアプリ開発の技術を習得することで本物のエンジニアに成長することができます。</p>
@@ -306,22 +355,30 @@
 
   <div class="question_1">
     <button class="question_1_faq-head">
-      <span class="q_1">    Q.まったくの初心者でも参加できますか？</span>
+      <div class="q_1">
+        <div class="q_mark">Q.</div>
+        <div class="q_text">パソコンをあんまり触ったことがない初心者でも参加できますか？</div>
+      </div>
       <span class="chevron"></span>
     </button>
     <div class="question_body_1">
-       <p>A.もちろんです！<br>  AIが一緒にコードを書いてくれるので、まったくの初心者でも安心して始められます。<br>  パソコンの操作から丁寧にサポートしますので、気軽にご参加ください。</p>
+       <div class="a_mark">A.</div>
+       <div class="a_text">もちろんです！<br>AIが一緒にコードを書いてくれるので、初心者の方でも安心して始められます。<br>丁寧にサポートしますので、気軽にご参加ください。</div>
     </div>
   </div>
 
 
   <div class="question_2">
     <button class="question_2_faq-head">
-      <span class="q_2">    Q.パソコンを持っていないのですが大丈夫ですか？</span>
+      <div class="q_2">
+        <div class="q_mark">Q.</div>
+        <div class="q_text">パソコンを持っていないのですが大丈夫ですか？</div>
+      </div>
       <span class="chevron"></span>
     </button>
     <div class="question_body_2">
-      <p>A.問題ありません。<br>  当日は教室にてパソコンをご用意しております。<br>  操作方法もスタッフが一緒にサポートしますので安心してご参加ください。</p>
+      <div class="a_mark">A</div>
+      <div class="a_text">問題ありません！<br>当日は教室にてパソコンをご用意しております。<br>操作方法もスタッフが一緒にサポートしますので安心してご参加ください。</div>
     </div>
   </div>
 
@@ -329,11 +386,15 @@
 
   <div class="question_3">
     <button class="question_3_faq-head">
-      <span class="q_3">    Q.プログラミングを全く知らなくてもついていけますか？</span>
+      <div class="q_3">
+        <div class="q_mark">Q.</div>
+        <div class="q_text">プログラミングを全く知らなくてもついていけますか？</div>
+      </div>
       <span class="chevron"></span>
     </button>
     <div class="question_body_3">
-      <p>Aはい、ご安心ください。<br>コードを書く部分はAIがサポートしてくれるので、難しい知識は必要ありません。<br>専門用語を使わず、ゲーム感覚で学べる内容になっており、講師やスタッフも丁寧にフォローします。</p>
+      <div class="a_mark">A.</div>
+      <div class="a_text">はい、大丈夫です！<br>本イベントは初心者向けに設計されており、基礎から丁寧にサポートします。<br>わからないことがあればスタッフがすぐに対応しますので、安心してご参加ください。</div>
     </div>
   </div>
 
@@ -341,11 +402,15 @@
 
   <div class="question_4">
     <button class="question_4_faq-head">
-      <span class="q_4">    Q.参加にあたって必要な持ち物はありますか？</span>
+      <span class="q_4">
+        <div class="q_mark">Q.</div>
+        <div class="q_text">参加にあたって必要な持ち物はありますか？</div>
+      </span>
       <span class="chevron"></span>
     </button>
     <div class="question_body_4">
-      <p>A.もちろんです！<br> A.特別な持ち物はありません。筆記用具とワクワクする気持ちだけお持ちください！パソコンや教材はこちらでご用意しています。</p>
+      <div class="a_mark">A.</div>
+      <div class="a_text">特別な持ち物はいりません！<br> 筆記用具とワクワクする気持ちだけお持ちください！パソコンや教材はこちらでご用意しています。</div>
     </div>
   </div>
 
@@ -354,11 +419,15 @@
 
   <div class="question_5">
     <button class="question_5_faq-head">
-      <span class="q_5">    Q.参加費以外に追加料金はかかりますか？</span>
+      <span class="q_5">
+        <div class="q_mark">Q.</div>
+        <div class="q_text">参加費以外に追加料金はかかりますか？</div>
+      </span>
       <span class="chevron"></span>
     </button>
     <div class="question_body_5">
-      <p>A.いいえ、追加料金は一切かかりません。  参加費に教材費やパソコン使用料など、すべて含まれています。安心してご参加ください。</p>
+      <div class="a_mark">A.</div>
+      <div class="a_text">いいえ、追加料金は一切かかりません！<br> 参加費に教材費やパソコン使用料など、すべて含まれています。安心してご参加ください。</div>
     </div>
   </div>
 
