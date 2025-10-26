@@ -198,24 +198,19 @@ html {
   text-decoration: none;
   white-space: nowrap;
   box-shadow: 0 8px 0 0 var(--shadow);
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+
+  /* ▼ 常時上下に動くアニメーションを追加 */
+  animation: float-updown 2.2s ease-in-out infinite;
 }
 
+/* ▼ 上下にゆっくり動くアニメーション */
 @keyframes float-updown {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
 
-.cta_applyform:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 9px 0 0 var(--shadow);
-}
-
-.cta_applyform:active {
-  transform: translateY(1px);
-  box-shadow: 0 7px 0 0 var(--shadow);
-}
 
 
 
@@ -273,7 +268,7 @@ html {
 }
 
 .cta_applyform_2:hover {
-  transform: translateY(-3px);
+  transform: translateY(-100px);
   background: linear-gradient(135deg, #00ffa3, #00bfff);
   box-shadow: 0 8px 30px rgba(0, 255, 200, 0.6);
 }
@@ -382,8 +377,10 @@ html {
 
 #app_examples {
   background: #F4FDFF;
-  padding: 20px 6%;
-  font-family: "Noto Sans JP";
+  width:100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 0;
   text-align: center;
 }
 
@@ -408,23 +405,22 @@ html {
 }
 
 .app_examples_box_all {
+  
   display: flex;
-  margin-top: 10px;
-  gap:20px;
-  justify-content: center;
-  padding: 0px 6% 0%;
+  justify-content: center;    /* 中央寄せ */
+  align-items: stretch;
+  gap: 40px;                  /* カード間隔 */
+  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
+  margin: 0 auto;             /* 中央寄せに必要！ */
+  box-sizing: border-box;     /* paddingが幅に含まれるように */
 }
 
 .app_examples_timerapp_title,
 .app_examples_quizapp_title,
 .app_examples_todolistapp_title {
   font-weight: 800;
-  color: #040404;
-  font-size: 24px;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin: 12px 0;
+  font-size: 22px;
+  margin-bottom: 5px;
 }
 
 
@@ -434,17 +430,14 @@ html {
 .app_examples_timerapp_box,
 .app_examples_quizapp_box,
 .app_examples_todolistapp_box {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 250px; 
-  flex: 1 1 260px; 
-  max-width: 340px; 
-  height: 80%;
-  padding: 1%;
-  flex: 0 0 calc((100% - 40px) / 3); 
-  max-width: calc((100% - 40px) / 3);
-  width: auto;
+  width: 400px;              /* 3枚×400 + gap(40×2) = 1280px → ちょうど良い中央配置 */
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   
   height: 420px;
 }
@@ -454,9 +447,11 @@ html {
 .app_examples_timerapp_img,
 .app_examples_quizapp_img,
 .app_examples_todolistapp_img {
-  width: 280px;
-  height: 180px;
-  border-radius: 8px;
+ width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
 
 }
 
@@ -464,10 +459,10 @@ html {
 .app_examples_timerapp_text,
 .app_examples_quizapp_text,
 .app_examples_todolistapp_text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
   text-align: left;
-  font-size: 14px;
-  line-height: 1.6;
-  padding: 12px 16px;
 }
 
 #flow {
@@ -574,9 +569,13 @@ html {
 
 
 #merit {
+  
+
   background: #F4FDFF;
-  padding: 20px 6%;
-  font-family: "Noto Sans JP";
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 0;
   text-align: center;
 }
 
@@ -602,40 +601,101 @@ html {
 
 
 
-.merit_box_all {
-    display: flex;
-  margin-top: 10px;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px 6% 50px;
+.merit_box_all {  display: flex;
+  justify-content: center;    /* 中央寄せ */
+  align-items: stretch;
+  gap: 40px;                  /* カード間隔 */
+  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
+  margin: 0 auto;             /* 中央寄せに必要！ */
+  box-sizing: border-box;
+  margin-bottom: 44px;
+  margin-top:  24px;
 }
+
 
 
 
 .merit_1_box,
 .merit_2_box,
 .merit_3_box {
-background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 250px; 
-  flex: 1 1 260px; 
-  max-width: 340px; 
-  height: 450px;
-  padding: 1%;
-  flex: 0 0 calc((100% - 40px) / 3); 
-  max-width: calc((100% - 40px) / 3);
-  width: auto;
+  
+  width: 400px;               /* 固定幅 */
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  box-sizing: border-box;  
+}
+
+.merit_1_title,
+.merit_2_title,
+.merit_3_title {
+  
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #111;
+  line-height: 1.4;
+  letter-spacing: .02em;
 }
 
 .merit_1_img,
 .merit_2_img,
 .merit_3_img {
-  width: 50%;
-  height: auto;
-  border-radius: 8px;
-
+  display: block;        /* inline要素→ブロック化 */
+  margin: 0 auto 12px;   /* 左右autoで中央寄せ・下に少し余白 */
+ 
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
 }
+
+.merit_1_text,
+.merit_2_text,
+.merit_3_text {
+  
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  text-align: left;
+  margin: 0;                 /* 余白暴れ防止 */
+  padding-left: 18px; 
+}
+
+.hang_list li {
+  margin-bottom: 6px;
+}
+
+
+.cta_applyform_3 {
+  width: 900px;
+  margin-left: auto;
+  display: inline-block;
+  padding: 12px 12px;
+  background: var(--cta_applyform);
+  color: #111;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 0 0 var(--shadow);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+
+  /* ▼ 常時上下に動くアニメーションを追加 */
+  animation: float-updown 2.2s ease-in-out infinite;
+}
+
+/* ▼ 上下にゆっくり動くアニメーション */
+@keyframes float-updown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 
 #voice {
   background: #f6f6f6;
@@ -759,15 +819,11 @@ background-color: #fff;
 
 
 .voice_student_setumei {
-  width: 100%;
-  margin: auto;
-  
+  margin: 8px 0 0;
   font-weight: 600;
-  padding: 0 24px 24px 24px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
-  color: rgb(0, 0, 0);
-  box-sizing: border-box;
+  color: #000;
   text-align: right;
 }
 
@@ -885,9 +941,12 @@ background-color: #fff;
 
 
 #introduce {
+  
   background: #F4FDFF;
-  padding: 20px 6%;
-  font-family: "Noto Sans JP";
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 0;
   text-align: center;
 }
 
@@ -915,10 +974,14 @@ background-color: #fff;
 
 .introduce_teacherbox_all {
   display: flex;
-  margin-top: 10px;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px 6% 50px;
+  justify-content: center;    /* 中央寄せ */
+  align-items: stretch;
+  gap: 40px;                  /* カード間隔 */
+  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
+  margin: 0 auto;             /* 中央寄せに必要！ */
+  box-sizing: border-box;
+  margin-bottom: 44px;
+  margin-top:  24px;
  
 }
 
@@ -944,23 +1007,23 @@ background-color: #fff;
 .introduce_teacherbox_1,
 .introduce_teacherbox_2,
 .introduce_teacherbox_3 {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 250px; /* 基本幅 */
-  flex: 1 1 260px; /* 横並びを保ちつつ可変 */
-  max-width: 340px; /* 広がりすぎ防止 */
-  height: 80%;
-  padding: 1%;
-   flex: 0 0 calc((100% - 40px) / 3); /* gap(20px)×2 を差し引いた3等分 */
-    max-width: calc((100% - 40px) / 3);
-    width: auto;
+   width: 400px;               /* 固定幅 */
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  box-sizing: border-box;
 }
 
-
-.introduce_teacherbox_1_body{
-  text-align: left;
-
+.introduce_teacherbox_1_name,
+.introduce_teacherbox_2_name,
+.introduce_teacherbox_3_name {
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 5px;
 }
 
 .introduce_teacherbox_1_img,
@@ -970,6 +1033,9 @@ background-color: #fff;
   width: 150px;
   height: 140px;
   border-radius: 8px;
+  
+  display: block;        /* inline要素→ブロック化 */
+  margin: 0 auto 12px;   /* 左右autoで中央寄せ・下に少し余白 */
 
 }
 
@@ -1014,7 +1080,9 @@ background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 1200px;
-
+   width: clamp(320px, 90%, 1200px); /* 画面に合わせて可変 */
+  margin: 0 auto;                   /* ← これで中央寄せ */
+  padding: 12px;           
 }
 
 .introduce_BeEngineer_body {
