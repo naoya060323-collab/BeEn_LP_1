@@ -386,6 +386,7 @@ html {
 
 
 .app_examples_title {
+  
   background: linear-gradient(transparent 70%, #fdff76 0%);
   background-size: 100% 60%;
   background-repeat: no-repeat;
@@ -405,13 +406,12 @@ html {
 }
 
 .app_examples_box_all {
-  
   display: flex;
   justify-content: center;    /* 中央寄せ */
   align-items: stretch;
   gap: 40px;                  /* カード間隔 */
   width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
-  margin: 0 auto;             /* 中央寄せに必要！ */
+  margin: 24px auto;             /* 中央寄せに必要！ */
   box-sizing: border-box;     /* paddingが幅に含まれるように */
 }
 
@@ -673,7 +673,7 @@ html {
 
 
 .cta_applyform_3 {
-  width: 900px;
+  width: 600px;
   margin-left: auto;
   display: inline-block;
   padding: 12px 12px;
@@ -981,7 +981,6 @@ html {
   margin: 0 auto;             /* 中央寄せに必要！ */
   box-sizing: border-box;
   margin-bottom: 44px;
-  margin-top:  24px;
  
 }
 
@@ -1107,6 +1106,7 @@ html {
 
 
 .event_detail_title {
+  
   background: linear-gradient(transparent 70%, #fdff76 0%);
   background-size: 100% 60%;
   background-repeat: no-repeat;
@@ -1790,37 +1790,65 @@ footer a:hover {
     padding: 0 2px;
   }
 
-  /* ボックス群（3→1列） */
-  .app_examples_box {
-    flex-direction: column;
-    /* 横並び→縦並び */
-    align-items: center;
-    gap: 24px;
-    /* 間隔少し狭く */
-    margin-top: 24px;
-  }
+.app_examples_box_all {
+  display: flex;
+  justify-content: center;    /* 中央寄せ */
+  align-items: stretch;
+  gap: 40px;                  /* カード間隔 */
+  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
+  margin: 24px auto;             /* 中央寄せに必要！ */
+  box-sizing: border-box;     /* paddingが幅に含まれるように */
+}
 
-  /* 各アプリカード */
-  .app_examples_timerapp_box,
-  .app_examples_quizapp_box,
-  .app_examples_todolistapp_box {
-    width: 90%;
-    /* 固定幅→画面幅基準 */
-    max-width: 320px;
-    /* 大きすぎ防止（任意） */
-    padding: 16px;
-  }
+.app_examples_timerapp_title,
+.app_examples_quizapp_title,
+.app_examples_todolistapp_title {
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
 
-  /* 画像 */
-  .app_examples_timerapp_img,
-  .app_examples_quizapp_img,
-  .app_examples_todolistapp_img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
-    object-fit: cover;
-  }
+
+
+
+
+.app_examples_timerapp_box,
+.app_examples_quizapp_box,
+.app_examples_todolistapp_box {
+  width: 400px;              /* 3枚×400 + gap(40×2) = 1280px → ちょうど良い中央配置 */
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  
+  height: 420px;
+}
+
+
+
+.app_examples_timerapp_img,
+.app_examples_quizapp_img,
+.app_examples_todolistapp_img {
+ width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 5px;
+
+}
+
+
+.app_examples_timerapp_text,
+.app_examples_quizapp_text,
+.app_examples_todolistapp_text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  text-align: left;
+}
 
   .flow_title {
     font-size: 26px;
@@ -1874,6 +1902,32 @@ footer a:hover {
     margin-bottom: 12px;
     border-radius: 8px;
   }
+
+  
+.cta_applyform_3 {
+  width: 300px;
+  margin-left: auto;
+  display: inline-block;
+  padding: 12px 12px;
+  background: var(--cta_applyform);
+  color: #111;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 0 0 var(--shadow);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+
+  /* ▼ 常時上下に動くアニメーションを追加 */
+  animation: float-updown 2.2s ease-in-out infinite;
+}
+
+/* ▼ 上下にゆっくり動くアニメーション */
+@keyframes float-updown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 
 
   #voice {
