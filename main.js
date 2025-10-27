@@ -125,3 +125,76 @@ if (burger && siteMenu) {
     if (window.innerWidth > 480) closeMenu();
   });
 }
+
+
+(function () {
+  const section = document.querySelector('#app_examples');
+  const track   = section.querySelector('.app_examples_track');
+  const prevBtn = section.querySelector('.app_examples_nav.prev');
+  const nextBtn = section.querySelector('.app_examples_nav.next');
+
+  const slides  = Array.from(track.children);
+  let index = 0;
+
+  // SPだけスライダー挙動にする（768px以下）
+  const isSP = () => window.matchMedia('(max-width: 768px)').matches;
+
+  function update() {
+    // 1枚 = 100% 幅で移動
+    track.style.transform = `translateX(${-index * 100}%)`;
+    // 端で矢印無効
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
+  }
+
+  function go(step) {
+    if (!isSP()) return; // PC時は無視
+    index = Math.max(0, Math.min(slides.length - 1, index + step));
+    update();
+  }
+
+  prevBtn.addEventListener('click', () => go(-1));
+  nextBtn.addEventListener('click', () => go(1));
+
+
+  // スワイプ（タッチ）
+  let startX = 0, deltaX = 0, dragging = false;
+  const threshold = 50; // しきい値
+
+  function onTouchStart(e) {
+    if (!isSP()) return;
+    dragging = true;
+    startX = e.touches ? e.touches[0].clientX : e.clientX;
+    deltaX = 0;
+  }
+  function onTouchMove(e) {
+    if (!dragging || !isSP()) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    deltaX = x - startX;
+  }
+  function onTouchEnd() {
+    if (!dragging || !isSP()) return;
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX < 0) go(1);  // 左へスワイプ→次へ
+      else            go(-1); // 右へスワイプ→前へ
+    } else {
+      update(); // 元位置に戻す
+    }
+    dragging = false;
+  }
+
+  track.addEventListener('touchstart', onTouchStart, { passive: true });
+  track.addEventListener('touchmove',  onTouchMove,  { passive: true });
+  track.addEventListener('touchend',   onTouchEnd);
+  // マウスドラッグも対応したいなら以下を有効化
+  track.addEventListener('mousedown', onTouchStart);
+  window.addEventListener('mousemove', onTouchMove);
+  window.addEventListener('mouseup',   onTouchEnd);
+
+  // 画面回転やリサイズ時に現在indexを反映
+  window.addEventListener('resize', update);
+
+  // 初期化
+  update();
+})();
+

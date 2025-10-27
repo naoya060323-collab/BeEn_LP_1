@@ -376,6 +376,8 @@ html {
 /* #endregion */
 
 #app_examples {
+  
+  position: relative;   /* ← 追加 */
   background: #F4FDFF;
   width:100%;
   max-width: 1440px;
@@ -414,6 +416,28 @@ html {
   margin: 24px auto;             /* 中央寄せに必要！ */
   box-sizing: border-box;     /* paddingが幅に含まれるように */
 }
+
+.app_examples_nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: none;           /* ← デフォは非表示（SPで表示） */
+  border: none;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 44px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+.app_examples_nav.prev { left: 8px; }
+.app_examples_nav.next { right: 8px; }
+.app_examples_nav:disabled { opacity: .35; cursor: default; }
 
 .app_examples_timerapp_title,
 .app_examples_quizapp_title,
@@ -1790,15 +1814,24 @@ footer a:hover {
     padding: 0 2px;
   }
 
+ .app_examples_nav { display: inline-block; }
+
 .app_examples_box_all {
-  display: flex;
-  justify-content: center;    /* 中央寄せ */
-  align-items: stretch;
-  gap: 40px;                  /* カード間隔 */
-  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
-  margin: 24px auto;             /* 中央寄せに必要！ */
-  box-sizing: border-box;     /* paddingが幅に含まれるように */
+  
+    width: 100%;
+    margin: 16px auto;
+    overflow: hidden;             /* ビューポート外は隠す */
+    padding: 0;           
 }
+
+
+  .app_examples_track {
+    display: flex;
+    gap: 0;                       /* スライド間の隙間は0（はみ出し防止） */
+    transition: transform .35s ease;
+    will-change: transform;
+  }
+
 
 .app_examples_timerapp_title,
 .app_examples_quizapp_title,
@@ -1815,16 +1848,11 @@ footer a:hover {
 .app_examples_timerapp_box,
 .app_examples_quizapp_box,
 .app_examples_todolistapp_box {
-  width: 400px;              /* 3枚×400 + gap(40×2) = 1280px → ちょうど良い中央配置 */
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  
-  height: 420px;
+  min-width: 100%;
+    width: 100%;
+    height: auto;                 /* 高さは中身に合わせる */
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 
@@ -1832,12 +1860,9 @@ footer a:hover {
 .app_examples_timerapp_img,
 .app_examples_quizapp_img,
 .app_examples_todolistapp_img {
- width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 5px;
-
+  height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 
@@ -2513,6 +2538,7 @@ footer{
 
 }
 
+
 /* ▼ 講師カード（SP：1列で中央寄せ） */
   .introduce_teacherbox_all { gap: 16px; padding: 16px 16px 32px; }
   .introduce_teacherbox_1,
@@ -2522,5 +2548,3 @@ footer{
     width: 100%;
     max-width: 360px;
   }
-
-
