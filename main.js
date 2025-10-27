@@ -1,4 +1,3 @@
-// ===== スクロール時のヘッダー出現 =====
 window.addEventListener('scroll', () => {
   const header = document.querySelector('.site-header');
   const hero = document.querySelector('#hero'); // ファーストビューのid
@@ -11,13 +10,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== リロード時にアンカーや復元スクロールで飛ばされるのを抑止 =====
-// ブラウザのスクロール復元（前回位置へ自動スクロール）を無効化
-try {
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-} catch (_) {}
 
 // 初回ロード時にヒーロー文字をふわっと表示 + ハッシュ復元対策
 window.addEventListener('DOMContentLoaded', () => {
@@ -25,18 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const isReload = nav && nav.type === 'reload';
   const hasHash = location.hash && location.hash.length > 1;
 
-  // リロードで #xxx が付いたままの場合はトップに固定してハッシュを除去
-  if (isReload && hasHash) {
-    // 一旦スムースをオフにして即時でトップへ
-    const htmlEl = document.documentElement;
-    const prevBehavior = htmlEl.style.scrollBehavior;
-    htmlEl.style.scrollBehavior = 'auto';
-    window.scrollTo(0, 0);
-    // ハッシュを消して以後の予期せぬアンカースクロールを防止
-    history.replaceState(null, '', location.pathname + location.search);
-    // 元に戻す
-    htmlEl.style.scrollBehavior = prevBehavior;
-  }
+
 
   // ヒーロー演出のトリガ
   document.body.classList.add('is-loaded');
@@ -156,45 +137,82 @@ if (burger && siteMenu) {
   prevBtn.addEventListener('click', () => go(-1));
   nextBtn.addEventListener('click', () => go(1));
 
+  update();
+})();
 
-  // スワイプ（タッチ）
-  let startX = 0, deltaX = 0, dragging = false;
-  const threshold = 50; // しきい値
 
-  function onTouchStart(e) {
-    if (!isSP()) return;
-    dragging = true;
-    startX = e.touches ? e.touches[0].clientX : e.clientX;
-    deltaX = 0;
-  }
-  function onTouchMove(e) {
-    if (!dragging || !isSP()) return;
-    const x = e.touches ? e.touches[0].clientX : e.clientX;
-    deltaX = x - startX;
-  }
-  function onTouchEnd() {
-    if (!dragging || !isSP()) return;
-    if (Math.abs(deltaX) > threshold) {
-      if (deltaX < 0) go(1);  // 左へスワイプ→次へ
-      else            go(-1); // 右へスワイプ→前へ
-    } else {
-      update(); // 元位置に戻す
-    }
-    dragging = false;
+
+(function () {
+  const section = document.querySelector('#merit');
+  const track   = section.querySelector('.merit_track');
+  const prevBtn = section.querySelector('.merit_nav.prev');
+  const nextBtn = section.querySelector('.merit_nav.next');
+
+  const slides  = Array.from(track.children);
+  let index = 0;
+
+  // SPだけスライダー挙動にする（768px以下）
+  const isSP = () => window.matchMedia('(max-width: 768px)').matches;
+
+  function update() {
+    // 1枚 = 100% 幅で移動
+    track.style.transform = `translateX(${-index * 100}%)`;
+    // 端で矢印無効
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
   }
 
-  track.addEventListener('touchstart', onTouchStart, { passive: true });
-  track.addEventListener('touchmove',  onTouchMove,  { passive: true });
-  track.addEventListener('touchend',   onTouchEnd);
-  // マウスドラッグも対応したいなら以下を有効化
-  track.addEventListener('mousedown', onTouchStart);
-  window.addEventListener('mousemove', onTouchMove);
-  window.addEventListener('mouseup',   onTouchEnd);
+  function go(step) {
+    if (!isSP()) return; // PC時は無視
+    index = Math.max(0, Math.min(slides.length - 1, index + step));
+    update();
+  }
 
-  // 画面回転やリサイズ時に現在indexを反映
-  window.addEventListener('resize', update);
+  prevBtn.addEventListener('click', () => go(-1));
+  nextBtn.addEventListener('click', () => go(1));
+
+
+
 
   // 初期化
   update();
 })();
 
+
+
+
+(function () {
+  const section = document.querySelector('#introduce');
+  const track   = section.querySelector('.introduce_track');
+  const prevBtn = section.querySelector('.introduce_nav.prev');
+  const nextBtn = section.querySelector('.introduce_nav.next');
+
+  const slides  = Array.from(track.children);
+  let index = 0;
+
+  // SPだけスライダー挙動にする（768px以下）
+  const isSP = () => window.matchMedia('(max-width: 768px)').matches;
+
+  function update() {
+    // 1枚 = 100% 幅で移動
+    track.style.transform = `translateX(${-index * 100}%)`;
+    // 端で矢印無効
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
+  }
+
+  function go(step) {
+    if (!isSP()) return; // PC時は無視
+    index = Math.max(0, Math.min(slides.length - 1, index + step));
+    update();
+  }
+
+  prevBtn.addEventListener('click', () => go(-1));
+  nextBtn.addEventListener('click', () => go(1));
+
+
+
+
+  // 初期化
+  update();
+})();

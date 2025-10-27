@@ -106,6 +106,13 @@ html {
 }
 .skip_button::-webkit-scrollbar { display: none; } /* WebKit */
 
+
+/* PC幅ではスクロール領域が影を切らないようにする */
+@media (min-width: 481px){
+  .skip_button { overflow-x: visible; } /* ← これが一番手っ取り早い */
+  .cta_applyform { position: relative; z-index: 2; } /* 念のため前面に */
+}
+
 /* ▼ ロゴ */
 .hero_BeEn_img {
   height: 50px;
@@ -172,21 +179,6 @@ html {
   transform: translateY(-3px);
 }
 
-.cta_applyform_2 {
-  margin-left: auto;
-  display: inline-block;
-  padding: 12px 12px;
-  background: var(--cta_applyform);
-  color: #111;
-  font-weight: 800;
-  text-decoration: none;
-  white-space: nowrap;
-  box-shadow: 0 8px 0 0 var(--shadow);
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
-}
-
-/* ▼ 右側の黄色CTA */
 .cta_applyform {
   margin-left: auto;
   display: inline-block;
@@ -200,6 +192,7 @@ html {
   box-shadow: 0 8px 0 0 var(--shadow);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
   transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  z-index: 2;
 
   /* ▼ 常時上下に動くアニメーションを追加 */
   animation: float-updown 2.2s ease-in-out infinite;
@@ -207,8 +200,8 @@ html {
 
 /* ▼ 上下にゆっくり動くアニメーション */
 @keyframes float-updown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%, 100% { transform: translateY(2); }
+  50% { transform: translateY(-4px); }
 }
 
 
@@ -265,12 +258,6 @@ html {
   background: linear-gradient(135deg, #00bfff, #00ffa3);
   box-shadow: 0 4px 25px rgba(0, 255, 180, 0.4);
   transition: all 0.3s ease;
-}
-
-.cta_applyform_2:hover {
-  transform: translateY(-100px);
-  background: linear-gradient(135deg, #00ffa3, #00bfff);
-  box-shadow: 0 8px 30px rgba(0, 255, 200, 0.6);
 }
 
 
@@ -407,15 +394,22 @@ html {
   margin: 24px;
 }
 
-.app_examples_box_all {
-  display: flex;
+
+@media screen and (min-width: 600px) {
+
+.app_examples_track {
+ display: flex;
   justify-content: center;    /* 中央寄せ */
   align-items: stretch;
   gap: 40px;                  /* カード間隔 */
   width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
-  margin: 24px auto;             /* 中央寄せに必要！ */
-  box-sizing: border-box;     /* paddingが幅に含まれるように */
+  margin: 0 auto;             /* 中央寄せに必要！ */
+  box-sizing: border-box;
+  margin-bottom: 44px;
+  margin-top:  24px;     /* paddingが幅に含まれるように */
 }
+}
+
 
 .app_examples_nav {
   position: absolute;
@@ -595,12 +589,13 @@ html {
 #merit {
   
 
+  position: relative; /* ← 追加 */ 
   background: #F4FDFF;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 60px 0;
-  text-align: center;
+   width:100%; 
+   max-width: 1440px; 
+   margin: 0 auto; 
+   padding: 60px 0; 
+   text-align: center;
 }
 
 
@@ -623,47 +618,38 @@ html {
   margin: 24px;
 }
 
+@media screen and (min-width: 600px) { 
+  .merit_track { 
+    display: flex; 
+    justify-content: center; /* 中央寄せ */ 
+    align-items: stretch; 
+    gap: 40px; /* カード間隔 */ 
+    width: 90%; /* 全体幅の90%（＝左右5%ずつ余白） */ 
+    margin: 0 auto; /* 中央寄せに必要！ */ 
+    box-sizing: border-box; 
+    margin-bottom: 44px; 
+    margin-top: 24px; /* paddingが幅に含まれるように */ 
+  }
+} 
+
+.merit_nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; display: none; /* ← デフォは非表示（SPで表示） */ border: none; background: rgba(0,0,0,.6); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 20px; line-height: 44px; text-align: center; cursor: pointer; user-select: none; } .merit_nav.prev { left: 8px; } .merit_nav.next { right: 8px; } .merit_nav:disabled { opacity: .35; cursor: default; }
 
 
-.merit_box_all {  display: flex;
-  justify-content: center;    /* 中央寄せ */
-  align-items: stretch;
-  gap: 40px;                  /* カード間隔 */
-  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
-  margin: 0 auto;             /* 中央寄せに必要！ */
-  box-sizing: border-box;
-  margin-bottom: 44px;
-  margin-top:  24px;
-}
+
 
 
 
 
 .merit_1_box,
 .merit_2_box,
-.merit_3_box {
-  
-  width: 400px;               /* 固定幅 */
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  height: 400px;
-  box-sizing: border-box;  
-}
+.merit_3_box
+{ width: 400px; /* 3枚×400 + gap(40×2) = 1280px → ちょうど良い中央配置 */ background: #fff; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 20px; display: flex; flex-direction: column; box-sizing: border-box; height: 420px; }
 
 .merit_1_title,
 .merit_2_title,
 .merit_3_title {
   
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: #111;
-  line-height: 1.4;
-  letter-spacing: .02em;
+  font-weight: 800; font-size: 22px; margin-bottom: 5px;
 }
 
 .merit_1_img,
@@ -683,12 +669,7 @@ html {
 .merit_2_text,
 .merit_3_text {
   
-  font-size: 16px;
-  line-height: 1.8;
-  color: #333;
-  text-align: left;
-  margin: 0;                 /* 余白暴れ防止 */
-  padding-left: 18px; 
+  font-size: 16px; line-height: 1.8; color: #333; text-align: left;
 }
 
 .hang_list li {
@@ -714,11 +695,8 @@ html {
   animation: float-updown 2.2s ease-in-out infinite;
 }
 
-/* ▼ 上下にゆっくり動くアニメーション */
-@keyframes float-updown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
+
+
 
 
 #voice {
@@ -965,13 +943,7 @@ html {
 
 
 #introduce {
-  
-  background: #F4FDFF;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 60px 0;
-  text-align: center;
+position: relative; /* ← 追加 */ background: #F4FDFF; width:100%; max-width: 1440px; margin: 0 auto; padding: 60px 0; text-align: center;
 }
 
 /* 共通: 「・」だけ左にぶら下げる（ハンギングインデント） */
@@ -1027,39 +999,43 @@ html {
   margin: 24px;
 }
 
+
+@media screen and (min-width: 600px) { .introduce_track { 
+ display: flex;
+  justify-content: center;    /* 中央寄せ */
+  align-items: stretch;
+  gap: 40px;                  /* カード間隔 */
+  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
+  margin: 0 auto;             /* 中央寄せに必要！ */
+  box-sizing: border-box;
+  margin-bottom: 44px;
+  margin-top:  24px;     /* paddingが幅に含まれるように */ } }
+
+
+.introduce_nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; display: none; /* ← デフォは非表示（SPで表示） */ border: none; background: rgba(0,0,0,.6); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 20px; line-height: 44px; text-align: center; cursor: pointer; user-select: none; } .introduce_nav.prev { left: 8px; } .introduce_nav.next { right: 8px; } .introduce_nav:disabled { opacity: .35; cursor: default; }
+
+
+
 .introduce_teacherbox_1,
 .introduce_teacherbox_2,
 .introduce_teacherbox_3 {
-   width: 400px;               /* 固定幅 */
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  height: 420px;
-  box-sizing: border-box;
+width: 400px; /* 3枚×400 + gap(40×2) = 1280px → ちょうど良い中央配置 */ background: #fff; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 20px; display: flex; flex-direction: column; box-sizing: border-box; height: 420px;
 }
 
 .introduce_teacherbox_1_name,
 .introduce_teacherbox_2_name,
 .introduce_teacherbox_3_name {
-  font-weight: 800;
-  font-size: 22px;
-  margin-bottom: 5px;
+font-weight: 800; font-size: 22px; margin-bottom: 5px;
 }
 
 .introduce_teacherbox_1_img,
 .introduce_teacherbox_2_img,
-.introduce_teacherbox_3_img,
-.introduce_teacherbox_4_img {
-  width: 150px;
-  height: 140px;
-  border-radius: 8px;
+.introduce_teacherbox_3_img{
   
   display: block;        /* inline要素→ブロック化 */
   margin: 0 auto 12px;   /* 左右autoで中央寄せ・下に少し余白 */
-
+ 
+width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 5px;
 }
 
 
@@ -1672,15 +1648,6 @@ footer a:hover {
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
   }
 
-  .cta_applyform:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 9px 0 0 var(--shadow);
-  }
-
-  .cta_applyform:active {
-    transform: translateY(1px);
-    box-shadow: 0 7px 0 0 var(--shadow);
-  }
 
 
   #hero {
@@ -1891,41 +1858,44 @@ footer a:hover {
   }
 
   /* タイトル */
-  .merit_title {
-    font-size: 26px;
-    line-height: 1.4;
-    margin: 16px 0 8px;
-    background-size: 100% 60%;
-    background-position: 0 75%;
-    padding: 0 2px;
+  .merit_title {font-size: 26px; line-height: 1.4; margin: 16px 0 8px; background-size: 100% 60%; background-position: 0 75%; padding: 0 2px;
   }
+
+
+  .merit_nav { display: inline-block; }
+
 
   /* カード全体の並び（3→1列） */
   .merit_box_all {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    margin-top: 24px;
+    width: 100%; margin: 16px auto; overflow: hidden; /* ビューポート外は隠す */ padding: 0;
   }
+
+  .merit_track { display: flex; gap: 0; /* スライド間の隙間は0（はみ出し防止） */ transition: transform .35s ease; will-change: transform; }
 
   /* 各メリットカード */
   .merit_1_box,
   .merit_2_box,
   .merit_3_box {
-    width: 90%;
-    max-width: 320px;
-    height: auto;
-    padding: 16px;
+    min-width: 100%; width: 100%; height: auto; /* 高さは中身に合わせる */ border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
-
+  
+  .merit_title_1,
+  .merit_title_2,
+  .merit_title_3 {
+    font-weight: 800; font-size: 22px; margin-bottom: 5px;}
 
   .merit_1_img,
   .merit_2_img,
   .merit_3_img {
-    width: 70%;
-    height: auto;
-    margin-bottom: 12px;
-    border-radius: 8px;
+    height: 150px; 
+    width: auto;
+    object-fit: cover; border-radius: 10px;
+  }
+
+  .merit_1_text hang_list,
+  .merit_2_text hang_list,
+  .merit_3_text hang_list 
+    { font-size: 16px; line-height: 1.8; color: #333; text-align: left; 
   }
 
   
@@ -2173,28 +2143,58 @@ footer a:hover {
   }
 
 
-
+#introduce{
+  padding: 24px 16px;
+}
 
 
   .introduce_title {
-  background: linear-gradient(transparent 70%, #fdff76 0%);
-  background-size: 100% 60%;
-  background-repeat: no-repeat;
-  background-position: 0 70%;
-  display: inline;
-  padding: 0 4px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+    font-size: 26px; line-height: 1.4; margin: 16px 0 8px; background-size: 100% 60%; background-position: 0 75%; padding: 0 2px;
 
-  font-weight: 800;
-  color: #040404;
-  font-size: 26px;
-  line-height: 1.6;
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin: 24px;
 
 }
+
+.introduce_nav { display: inline-block;  position: absolute;          /* ← inline-block から上書き */
+  top: 50%;
+  transform: translateY(-50%);}
+
+
+.introduce_teacherbox_all{
+  
+  position: relative; 
+  width: 100%; margin: 16px auto; overflow: hidden; /* ビューポート外は隠す */ padding: 0;
+}
+
+
+.introduce_track { display: flex; gap: 0; /* スライド間の隙間は0（はみ出し防止） */ transition: transform .35s ease; will-change: transform; }
+
+.introduce_teacherbox_1_name,
+.introduce_teacherbox_2_name,
+.introduce_teacherbox_3_name{font-weight: 800; font-size: 22px; margin-bottom: 5px;
+
+}
+
+
+.introduce_teacherbox_1,
+.introduce_teacherbox_2,
+.introduce_teacherbox_3{
+  min-width: 100%; width: 100%; height: auto; /* 高さは中身に合わせる */ border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+
+
+
+}
+
+.introduce_teacherbox_1_img,
+.introduce_teacherbox_2_img,
+.introduce_teacherbox_3_img {
+  height: 200px; width: auto; object-fit: cover; border-radius: 10px;
+}
+
+
+
+
+
+
 
 .introduce_BeEngineer_title {
  font-size: 20px;
@@ -2537,14 +2537,3 @@ footer{
 }
 
 }
-
-
-/* ▼ 講師カード（SP：1列で中央寄せ） */
-  .introduce_teacherbox_all { gap: 16px; padding: 16px 16px 32px; }
-  .introduce_teacherbox_1,
-  .introduce_teacherbox_2,
-  .introduce_teacherbox_3 {
-    flex: 1 1 100%;
-    width: 100%;
-    max-width: 360px;
-  }
