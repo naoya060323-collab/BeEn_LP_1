@@ -53,14 +53,13 @@ body {
   color: var(--ink);
 }
 
-/* アンカーのスムーススクロール */
+
 html {
   scroll-behavior: smooth;
-  /* 固定ヘッダーぶんの余白（JSで --header-offset を更新） */
   scroll-padding-top: var(--header-offset, 0px);
 }
 
-/* ▼ 最初は非表示、スクロールで出す */
+
 .site-header {
   position: fixed;
   top: 0;
@@ -75,13 +74,11 @@ html {
   transition: transform .4s ease, opacity .4s ease;
 }
 
-/* ▼ hero通過後に表示する状態 */
 .site-header.show {
   transform: translateY(0);
   opacity: 1;
 }
 
-/* ▼ 内側の配置 */
 .site-header .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -91,35 +88,34 @@ html {
   gap: 12px;
 }
 
-/* ▼ ヘッダーナビ（黒文字）を横並びに */
 .skip_button {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-left: 16px;
   flex: 1 1 auto;
-  min-width: 0; /* フレックス内で縮小を許可してオーバーフローを正しく扱う */
+  min-width: 0; 
   white-space: nowrap;
   overflow-x: auto;
-  padding-right: 180px; /* 右端CTAの分だけ余白を確保して重なりを防止（必要に応じて調整） */
-  scrollbar-width: none; /* Firefox: スクロールバー非表示 */
+  padding-right: 180px;
+  scrollbar-width: none; 
+  order: 1;
 }
-.skip_button::-webkit-scrollbar { display: none; } /* WebKit */
+
+.skip_button::-webkit-scrollbar { display: none; }
 
 
-/* PC幅ではスクロール領域が影を切らないようにする */
 @media (min-width: 481px){
-  .skip_button { overflow-x: visible; } /* ← これが一番手っ取り早い */
-  .cta_applyform { position: relative; z-index: 2; } /* 念のため前面に */
+  .skip_button { overflow-x: visible; } 
+  .cta_applyform { position: relative; z-index: 2; } 
 }
 
-/* ▼ ロゴ */
 .hero_BeEn_img {
   height: 50px;
   width: auto;
 }
 
-/* ハンバーガー基本 */
+
 .hamburger {
   display: none;
   position: relative;
@@ -132,9 +128,9 @@ html {
 }
 .hamburger__bar {
   position: absolute;
-  left: 4px;   /* 長くする: 余白を減らす */
-  right: 4px;  /* 長くする: 余白を減らす */
-  height: 2px; /* 細くする */
+  left: 4px;   
+  right: 4px;  
+  height: 2px; 
   background: #111;
   border-radius: 1px;
   transition: transform .2s ease, opacity .2s ease;
@@ -143,7 +139,6 @@ html {
 .hamburger__bar:nth-child(2) { top: 20px; }
 .hamburger__bar:nth-child(3) { top: 28px; }
 
-/* 開いたときのアニメ（X印） */
 .nav-open .hamburger__bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-open .hamburger__bar:nth-child(2) { opacity: 0; }
 .nav-open .hamburger__bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -193,12 +188,11 @@ html {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
   transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
   z-index: 2;
-
-  /* ▼ 常時上下に動くアニメーションを追加 */
+  order: 2;
   animation: float-updown 2.2s ease-in-out infinite;
 }
 
-/* ▼ 上下にゆっくり動くアニメーション */
+
 @keyframes float-updown {
   0%, 100% { transform: translateY(2); }
   50% { transform: translateY(-4px); }
@@ -222,15 +216,14 @@ html {
   text-align: center;
 }
 
-/* 中央テキスト */
+
 .hero_content {
   color: #fff;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transform: translateY(5%);
-  /* 少し下寄せにする */
 }
 
-/* 見出し */
+
 .hero_content h1 {
   font-size: 84px;
   font-weight: 800;
@@ -238,7 +231,7 @@ html {
   margin-bottom: 28px;
 }
 
-/* サブテキスト */
+
 .hero_content p {
   font-size: 20px;
   font-weight: 500;
@@ -260,6 +253,8 @@ html {
   transition: all 0.3s ease;
 }
 
+.cta_applyform_2:hover { transform: translateY(-100px); 
+  background: linear-gradient(135deg, #00ffa3, #00bfff); box-shadow: 0 8px 30px rgba(0, 255, 200, 0.6); }
 
 .hero_content * {
   opacity: 0;
@@ -281,7 +276,6 @@ html {
 }
 
 
-/* #region 概要 */
 #gaiyou {
   background: #f6f6f6;
   padding: 20px 6%;
@@ -309,7 +303,6 @@ html {
 
 .gaiyou_title_wrap {
   text-align: center;
-  /* 子要素(.gaiyou_title)を中央に配置 */
 }
 
 
@@ -357,14 +350,11 @@ html {
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   object-fit: cover;
-  /* テキスト側の上パディング(24px)と開始位置を揃える */
   margin-top: 24px;
 }
-/* #endregion */
 
 #app_examples {
-  
-  position: relative;   /* ← 追加 */
+  position: relative;   
   background: #F4FDFF;
   width:100%;
   max-width: 1440px;
@@ -399,14 +389,14 @@ html {
 
 .app_examples_track {
  display: flex;
-  justify-content: center;    /* 中央寄せ */
+  justify-content: center;   
   align-items: stretch;
-  gap: 40px;                  /* カード間隔 */
-  width: 90%;                 /* 全体幅の90%（＝左右5%ずつ余白） */
-  margin: 0 auto;             /* 中央寄せに必要！ */
+  gap: 40px;                 
+  width: 90%;                
+  margin: 0 auto;            
   box-sizing: border-box;
   margin-bottom: 44px;
-  margin-top:  24px;     /* paddingが幅に含まれるように */
+  margin-top:  24px;    
 }
 }
 
@@ -416,7 +406,7 @@ html {
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
-  display: none;           /* ← デフォは非表示（SPで表示） */
+  display: none;          
   border: none;
   background: rgba(0,0,0,.6);
   color: #fff;
@@ -448,7 +438,7 @@ html {
 .app_examples_timerapp_box,
 .app_examples_quizapp_box,
 .app_examples_todolistapp_box {
-  width: 400px;              /* 3枚×400 + gap(40×2) = 1280px → ちょうど良い中央配置 */
+  width: 400px;             
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
@@ -632,7 +622,35 @@ html {
   }
 } 
 
-.merit_nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; display: none; /* ← デフォは非表示（SPで表示） */ border: none; background: rgba(0,0,0,.6); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 20px; line-height: 44px; text-align: center; cursor: pointer; user-select: none; } .merit_nav.prev { left: 8px; } .merit_nav.next { right: 8px; } .merit_nav:disabled { opacity: .35; cursor: default; }
+.merit_nav { 
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  z-index: 5; 
+  display: none;  
+  border: none; 
+  background: rgba(0,0,0,.6); 
+  color: #fff; 
+  width: 44px; 
+  height: 44px; 
+  border-radius: 50%; 
+  font-size: 20px; 
+  line-height: 44px; 
+  text-align: center; 
+  cursor: pointer; 
+  user-select: none; } 
+  
+  .merit_nav.prev { 
+    left: 8px;
+  } 
+
+  .merit_nav.next { 
+    right: 8px; 
+  } 
+  
+  .merit_nav:disabled {
+    opacity: .35; cursor: default; 
+  }
 
 
 
@@ -1572,24 +1590,14 @@ footer a:hover {
 @media screen and (max-width: 480px) {
 
   .site-header {
-    position: fixed;
+    position: sticky;      /* ← fixedから変更 */
     top: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-    z-index: 40;
-    /* SPはファーストビューから常に表示 */
-    transform: translateY(0);
-    opacity: 1;
-    transition: transform .4s ease, opacity .4s ease;
+    transform: none !important;
+    opacity: 1 !important;
   }
+  .site-header.show { transform: none !important; }
 
-  /* ▼ hero通過後に表示する状態 */
-  .site-header.show {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  
 
   /* ▼ 内側の配置 */
   .site-header .container {
@@ -1653,7 +1661,7 @@ footer a:hover {
   #hero {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 620px;
     /* 全画面の高さ */
     background:
       linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.30)),
@@ -1676,7 +1684,7 @@ footer a:hover {
   }
 
   .hero_content h1 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 800;
     line-height: 1.4;
     margin-bottom: 28px;
@@ -1684,10 +1692,28 @@ footer a:hover {
 
   /* サブテキスト */
   .hero_content p {
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 500;
     opacity: 0.9;
   }
+
+  
+.cta_applyform_2 {
+  display: inline-block;
+  padding: 16px 40px;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #00bfff, #00ffa3);
+  box-shadow: 0 4px 25px rgba(0, 255, 180, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cta_applyform_2:hover { transform: translateY(-100px); 
+  background: linear-gradient(135deg, #00ffa3, #00bfff); box-shadow: 0 8px 30px rgba(0, 255, 200, 0.6); }
+
 
 
 #gaiyou {
@@ -1708,7 +1734,7 @@ footer a:hover {
 
   font-weight: 800;
   color: #040404;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1.6;
   text-align: center;
   letter-spacing: 0.03em;
@@ -1725,7 +1751,7 @@ footer a:hover {
   background: #ffffff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 48px;
+  padding: 24px;
   max-width: 1200px;
   margin: 0 auto;
 
@@ -1733,21 +1759,18 @@ footer a:hover {
 
 .gaiyou_body {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 6%;
-    display: flex;
-  flex-direction: column;
-}
+  flex-direction: column;   /* ← 縦積み */
+  align-items: center;      /* 横方向の中央揃え */
+  justify-content: center;
+  gap: 16px;}
 
 .gaiyou_text {
-  width: 100%;
-  margin: auto;
-  padding: 24px;
-  font-size: 10px;
-  line-height: 1.8;
-  color: #333333;
-  box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px;            /* 内側余白も圧縮 */
+    font-size: 14px;          /* 10px→読みやすいサイズへ */
+    line-height: 1.8;
+    text-align: left;   
   order: 2;
 
 
@@ -1755,13 +1778,10 @@ footer a:hover {
 
 
 .gaiyou_img {
-  width: 80%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  object-fit: cover;
-  order: 1;
-  margin-top: 0; /* 縦積みのSPでは余白なし */
+    width: 100%;              /* コンテナ幅にフィット */
+    max-width: 320px;         /* 見た目上の上限（任意） */
+    margin: 0 auto;
+    display: block;
 }
 
 
@@ -1773,7 +1793,7 @@ footer a:hover {
 
   /* タイトル */
   .app_examples_title {
-    font-size: 26px;
+    font-size: 24px;
     line-height: 1.4;
     margin: 16px 0 8px;
     background-size: 100% 60%;
@@ -1797,6 +1817,8 @@ footer a:hover {
     gap: 0;                       /* スライド間の隙間は0（はみ出し防止） */
     transition: transform .35s ease;
     will-change: transform;
+    margin: 0 0 40px;
+
   }
 
 
@@ -1804,7 +1826,7 @@ footer a:hover {
 .app_examples_quizapp_title,
 .app_examples_todolistapp_title {
   font-weight: 800;
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 5px;
 }
 
@@ -1842,14 +1864,105 @@ footer a:hover {
   text-align: left;
 }
 
-  .flow_title {
-    font-size: 26px;
-    line-height: 1.4;
-    margin: 16px 0 8px;
-    background-size: 100% 60%;
-    background-position: 0 75%;
-    padding: 0 2px;
-  }
+
+#flow {
+
+    padding: 24px 16px;
+    /* 左右安全余白を確保 */
+}
+
+.flow_title {
+  background: linear-gradient(transparent 70%, #fdff76 0%);
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: 0 70%;
+  display: inline;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  font-weight: 800;
+  color: #040404;
+  font-size: 22px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.flow_title_wrap {
+  text-align: center;
+  /* 子要素(.flow_title)を中央に配置 */
+}
+
+.flow_box_all {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+
+
+.flow_box_1,
+.flow_box_2,
+.flow_box_3,
+.flow_box_4 {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 0px 0px;
+  position: relative;
+  height: 160px
+
+}
+
+
+.flow_box_1_time,
+.flow_box_2_time,
+.flow_box_3_time,
+.flow_box_4_time {
+  font-weight: 800;
+  font-size: 16px;
+  color: #000;
+  text-align: right;
+  margin-right: 10px;
+  border-right: 3px solid #000;
+  padding-left:20px;
+  width: 30px;
+  text-align: left;
+}
+
+
+.flow_box_1_body,
+.flow_box_2_body,
+.flow_box_3_body,
+.flow_box_4_body {
+  flex: 1;
+}
+
+
+.flow_box_1_title,
+.flow_box_2_title,
+.flow_box_3_title,
+.flow_box_4_title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.flow_box_1_text,
+.flow_box_2_text,
+.flow_box_3_text,
+.flow_box_4_text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
 
   /* セクション全体 */
   #merit {
@@ -1858,7 +1971,7 @@ footer a:hover {
   }
 
   /* タイトル */
-  .merit_title {font-size: 26px; line-height: 1.4; margin: 16px 0 8px; background-size: 100% 60%; background-position: 0 75%; padding: 0 2px;
+  .merit_title {font-size: 22px; line-height: 1.4; margin: 16px 0 8px; background-size: 100% 60%; background-position: 0 75%; padding: 0 2px;
   }
 
 
@@ -1944,7 +2057,7 @@ footer a:hover {
 
     font-weight: 800;
     color: #040404;
-    font-size: 26px;
+    font-size: 22px;
     line-height: 1.6;
     text-align: center;
     letter-spacing: 0.03em;
@@ -2001,7 +2114,7 @@ footer a:hover {
     border-radius: 48px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, .1);
     padding: 18px 5px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.7;
     z-index: 0;
@@ -2117,11 +2230,13 @@ footer a:hover {
 
   /* ▼ 本文 */
   .voice_mother_body {
+    
     font-size: 15.5px;
     line-height: 1.9;
     letter-spacing: 0.01em;
     margin-top: 4px;
     color: #222;
+    margin: 10px 20px;
   }
 
   /* ▼ 説明文（署名） */
@@ -2135,7 +2250,13 @@ footer a:hover {
 
   .voice_mother_text {
     order: 2;
+    font-size: 15.5px;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+    margin-top: 4px;
+    color: #222;
   }
+  
 
   .voice_mother_img_box {
     order: 1;
@@ -2149,7 +2270,7 @@ footer a:hover {
 
 
   .introduce_title {
-    font-size: 26px; line-height: 1.4; margin: 16px 0 8px; background-size: 100% 60%; background-position: 0 75%; padding: 0 2px;
+    font-size: 22px; line-height: 1.4; margin: 16px 0 8px; background-size: 100% 60%; background-position: 0 75%; padding: 0 2px;
 
 
 }
@@ -2170,7 +2291,7 @@ footer a:hover {
 
 .introduce_teacherbox_1_name,
 .introduce_teacherbox_2_name,
-.introduce_teacherbox_3_name{font-weight: 800; font-size: 22px; margin-bottom: 5px;
+.introduce_teacherbox_3_name{font-weight: 800; font-size: 20px; margin-bottom: 5px;
 
 }
 
@@ -2197,7 +2318,7 @@ footer a:hover {
 
 
 .introduce_BeEngineer_title {
- font-size: 20px;
+ font-size: 19px;
  
 }
 
@@ -2205,9 +2326,12 @@ footer a:hover {
   display: flex;
   flex-direction: column;
   align-items: center; /* 子要素を中央揃えに */
+  border-radius: 14px;
 }
 .introduce_BeEngineer_text {
   order:2;
+  padding:10px;
+  margin: 10px 0px;
 
 }
 
@@ -2222,6 +2346,8 @@ footer a:hover {
 
 }
 
+
+
 .event_detail_title {
   background: linear-gradient(transparent 70%, #fdff76 0%);
   background-size: 100% 60%;
@@ -2234,7 +2360,7 @@ footer a:hover {
 
   font-weight: 800;
   color: #040404;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1.6;
   text-align: center;
   letter-spacing: 0.03em;
@@ -2292,7 +2418,7 @@ footer a:hover {
 
   font-weight: 800;
   color: #040404;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1.6;
   text-align: center;
   letter-spacing: 0.03em;
@@ -2380,7 +2506,7 @@ footer a:hover {
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 16px;
   cursor: pointer;
   text-align: left;
 }
@@ -2448,7 +2574,7 @@ footer a:hover {
   flex: 1;
   padding: 0px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 16px;
   text-align: left;
   font-weight: 800;
 }
@@ -2468,7 +2594,7 @@ footer a:hover {
   justify-content: center;
   margin: 10px auto;
   font-weight: 800;
-  font-size: 11px;
+  font-size: 16px;
 
 }
 
@@ -2486,7 +2612,7 @@ footer a:hover {
 
   font-weight: 800;
   color: #040404;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1.6;
   text-align: center;
   letter-spacing: 0.03em;
@@ -2511,7 +2637,7 @@ footer a:hover {
   flex: 1;
   padding: 0px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 16px;
   text-align: left;
   font-weight: 800;
 }
@@ -2529,11 +2655,11 @@ footer a:hover {
   justify-content: center;
   margin: 10px auto;
   font-weight: 800;
-  font-size: 11px;
+  font-size: 16px;
 }
 
 footer{
-  font-size: 10px;
+  font-size: 16px;
 }
 
 }
