@@ -1,23 +1,6 @@
 // SP判定
 const isSP = () => window.matchMedia('(max-width: 480px)').matches;
 
-// スクロール時のヘッダー制御
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-
-  // SPは常時表示＆クラス操作しない（揺れ防止）
-  if (isSP()) {
-    if (!header.classList.contains('show')) header.classList.add('show');
-    return;
-  }
-
-  const hero = document.querySelector('#hero');
-  const heroHeight = hero ? hero.offsetHeight : 0;
-
-  if (window.scrollY > heroHeight - 100) header.classList.add('show');
-  else header.classList.remove('show');
-});
 
 // ロード時の処理、アニメーション
 
@@ -36,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // ヘッダーの高さをCSS変数にセット
 function updateHeaderOffset() {
-  if (typeof isSP === 'function' && isSP()) return;
+ 
 
   const header = document.querySelector('.site-header');
   if (!header) return;
@@ -50,6 +33,21 @@ window.addEventListener('resize', updateHeaderOffset);
 const headerObserver = new MutationObserver(updateHeaderOffset);
 const headerEl = document.querySelector('.site-header');
 if (headerEl) headerObserver.observe(headerEl, { attributes: true, attributeFilter: ['class', 'style'] });
+
+
+
+function updateHeaderByScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const hero = document.querySelector('#hero');
+  const heroHeight = hero ? hero.offsetHeight : 0;
+  if (window.scrollY > heroHeight - 100) header.classList.add('show');
+  else header.classList.remove('show');
+}
+
+window.addEventListener('load', updateHeaderByScroll);
+window.addEventListener('resize', updateHeaderByScroll);
+window.addEventListener('scroll', updateHeaderByScroll);
 
 //質問の開閉
 
@@ -125,7 +123,7 @@ if (burger && siteMenu) {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 480) closeMenu();
+    if (window.innerWidth > 460) closeMenu();
   });
 }
 

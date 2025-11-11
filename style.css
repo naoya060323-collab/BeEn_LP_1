@@ -10,7 +10,7 @@
 .diag-triangle_frombluetogray {
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 8vh;
   background: linear-gradient(to right bottom,
       #F4FDFF 50%,
       #f6f6f6 49.9%);
@@ -19,7 +19,7 @@
 .diag-triangle_frombluetoyellow {
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 8vh;
   background: linear-gradient(to right bottom,
       #F4FDFF 50%,
       #FEFFD0 49.9%);
@@ -28,7 +28,7 @@
 .diag-triangle_fromyellowtoblue {
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 8vh;
   background: linear-gradient(to left bottom,
       #FEFFD0 49.9%,
       #F4FDFF 50%);
@@ -100,13 +100,17 @@ html {
   order: 1;
 }
 
-.skip_button::-webkit-scrollbar { display: none; }
-
-
-@media (min-width: 481px){
-  .skip_button { overflow-x: visible; } 
-  .cta_applyform { position: relative; z-index: 2; } 
+.skip_button::-webkit-scrollbar { 
+  display: none; 
 }
+
+
+
+.skip_button { 
+  overflow-x: visible; 
+}  
+
+
 
 .hero_BeEn_img {
   height: 50px;
@@ -124,6 +128,8 @@ html {
   cursor: pointer;
   border-radius: 8px;
 }
+
+
 .hamburger__bar {
   position: absolute;
   left: 4px;   
@@ -133,6 +139,8 @@ html {
   border-radius: 1px;
   transition: transform .2s ease, opacity .2s ease;
 }
+
+
 .hamburger__bar:nth-child(1) { top: 12px; }
 .hamburger__bar:nth-child(2) { top: 20px; }
 .hamburger__bar:nth-child(3) { top: 28px; }
@@ -173,6 +181,8 @@ html {
 }
 
 .cta_applyform {
+  position: relative; 
+  z-index: 2; 
   margin-left: auto;
   display: inline-block;
   padding: 12px 12px;
@@ -196,6 +206,84 @@ html {
   50% { transform: translateY(-4px); }
 }
 
+
+@media (max-width: 1160px) {
+  
+
+  .site-header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+
+
+  .hamburger { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    order: 2; 
+    margin-left: auto; 
+  }
+  
+
+
+  #site-menu { 
+    display: none; 
+  }
+
+
+  .nav-open #site-menu {
+    display: block;
+    position: absolute;
+    top: 56px; 
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    padding: 12px 16px 16px;
+    z-index: 39; 
+  }
+ 
+  .nav-open #site-menu a { 
+    display: block; 
+    padding: 10px 8px; 
+  }
+
+  .nav-open #site-menu .cta_applyform { 
+    margin-left: 0; 
+    width: 100%; 
+    display: block; 
+    text-align: center; 
+  }
+
+
+  .cta_applyform {
+    order: 1; 
+    margin-left: auto;
+    display: inline-block;
+    padding: 14px 14px;
+    background: var(--cta_applyform);
+    color: #111;
+    font-weight: 800;
+    border-radius: 18px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 8px 0 0 var(--shadow);
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
+    position: absolute;
+    right: 100px;
+
+  }
+
+
+
+}
 
 
 
@@ -251,8 +339,10 @@ html {
   transition: all 0.3s ease;
 }
 
-.cta_applyform_2:hover { transform: translateY(-100px); 
-  background: linear-gradient(135deg, #00ffa3, #00bfff); box-shadow: 0 8px 30px rgba(0, 255, 200, 0.6); }
+.cta_applyform_2:hover { 
+  transform: translateY(-100px); 
+  background: linear-gradient(135deg, #00ffa3, #00bfff); box-shadow: 0 8px 30px rgba(0, 255, 200, 0.6); 
+}
 
 .hero_content * {
   opacity: 0;
@@ -330,8 +420,6 @@ html {
   line-height: 1.8;
   color: #333333;
   box-sizing: border-box;
-
-
 }
 
 .gaiyou_text_yarukoto {
@@ -385,17 +473,17 @@ html {
 
 @media screen and (min-width: 600px) {
 
-.app_examples_track {
- display: flex;
-  justify-content: center;   
-  align-items: stretch;
-  gap: 40px;                 
-  width: 90%;                
-  margin: 0 auto;            
-  box-sizing: border-box;
-  margin-bottom: 44px;
-  margin-top:  24px;    
-}
+  .app_examples_track {
+    display: flex;
+    justify-content: center;   
+    align-items: stretch;
+    gap: 40px;                 
+    width: 90%;                
+    margin: 0 auto;            
+    box-sizing: border-box;
+    margin-bottom: 44px;
+    margin-top:  24px;    
+  }
 }
 
 
@@ -417,6 +505,8 @@ html {
   cursor: pointer;
   user-select: none;
 }
+
+
 .app_examples_nav.prev { left: 8px; }
 .app_examples_nav.next { right: 8px; }
 .app_examples_nav:disabled { opacity: .35; cursor: default; }
@@ -429,10 +519,6 @@ html {
   margin-bottom: 5px;
 }
 
-
-
-
-
 .app_examples_timerapp_box,
 .app_examples_quizapp_box,
 .app_examples_todolistapp_box {
@@ -444,7 +530,6 @@ html {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  
   height: 420px;
 }
 
@@ -453,7 +538,7 @@ html {
 .app_examples_timerapp_img,
 .app_examples_quizapp_img,
 .app_examples_todolistapp_img {
- width: 100%;
+  width: 100%;
   height: 220px;
   object-fit: cover;
   border-radius: 10px;
@@ -471,11 +556,13 @@ html {
   text-align: left;
 }
 
+
 #flow {
   background: #f6f6f6;
   padding: 20px 6%;
   font-family: "Noto Sans JP";
 }
+
 
 .flow_title {
   background: linear-gradient(transparent 70%, #fdff76 0%);
@@ -496,9 +583,11 @@ html {
   margin: 24px;
 }
 
+
 .flow_title_wrap {
   text-align: center;
 }
+
 
 .flow_box_all {
   display: flex;
@@ -523,7 +612,6 @@ html {
   padding: 0px 0px;
   position: relative;
   height: 120px
-
 }
 
 
@@ -1620,100 +1708,6 @@ footer a:hover {
 /* === SP版（iPhone SEなど幅480px以下） =================== */
 @media screen and (max-width: 480px) {
 
-  .site-header {
-    position: sticky;    
-    top: 0;
-    transform: none !important;
-    opacity: 1 !important;
-  }
-  .site-header.show { transform: none !important; }
-
-  
-
-  .site-header .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8px 24px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .hero_BeEn_img {
-    height: 40px;
-    width: auto;
-  }
-
-
-  .hamburger { 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-  }
-
-  .hero_BeEn_img { 
-    order: 0; 
-  }
-
-  .cta_applyform { 
-    order: 1; 
-    margin-left: 0; 
-  }
-
-  .hamburger { 
-    order: 2; 
-    margin-left: auto; 
-  }
-
-
-  #site-menu { 
-    display: none; 
-  }
-
-
-  .nav-open #site-menu {
-    display: block;
-    position: absolute;
-    top: 56px; 
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid rgba(0,0,0,.06);
-    box-shadow: 0 8px 20px rgba(0,0,0,.08);
-    padding: 12px 16px 16px;
-    z-index: 39; 
-  }
- 
-  .nav-open #site-menu a { 
-    display: block; 
-    padding: 10px 8px; 
-  }
-
-  .nav-open #site-menu .cta_applyform { 
-    margin-left: 0; 
-    width: 100%; 
-    display: block; 
-    text-align: center; 
-  }
-
-
-  .cta_applyform {
-    margin-left: auto;
-    display: inline-block;
-    padding: 14px 14px;
-    background: var(--cta_applyform);
-    color: #111;
-    font-weight: 800;
-    border-radius: 18px;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 8px 0 0 var(--shadow);
-    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .12));
-  }
-
-
-
   #hero {
     position: relative;
     width: 100%;
@@ -1724,6 +1718,12 @@ footer a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  .hero_BeEn_img { 
+    height: 40px;
+    width: auto;
+    order: 0; 
   }
 
 
@@ -2736,3 +2736,4 @@ footer a:hover {
   }
 
 }
+
